@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">AndroidMaster</string>
+
+    <!--IMC APP-->
+    <string name="calculator_title">Calculadora de IMC</string>
+    <string name="male">MALE</string>
+    <string name="female">FEMALE</string>
+    <string name="height">HEIGHT</string>
+    <string name="weight">WEIGHT</string>
+    <string name="age">AGE</string>
+    <string name="calculate">CALCULATE</string>
+    <string name="recalculate">RECALCULATE</string>
+    <string name="result">RESULT</string>
+
+    <string name="error">Error</string>
+
+    <string name="title_bajo_peso">LOW IMC</string>
+    <string name="description_bajo_peso">YOU HAVE A VERY LOW IMC.</string>
+
+    <string name="title_peso_normal">NORMAL IMC</string>
+    <string name="description_peso_normal">YOU ARE IN THE CORRECT IMC</string>
+
+    <string name="title_sobrepeso">OVER IMC</string>
+    <string name="description_sobrepeso">YOU ARE OVER YOUR IMC</string>
+
+    <string name="title_obesidad">OBESITY</string>
+    <string name="description_obesidad">CHECK WITH YOUR DOCTOR.</string>
+
+    <!--Accesibilidad: descripciones para TalkBack-->
+    <string name="decrease_weight">LESS WEIGHT</string>
+    <string name="increase_weight">MORE WEIGHT</string>
+    <string name="decrease_age">LESS AGE</string>
+    <string name="increase_age">MORE AGE</string>
+
+</resources>
