@@ -2,34 +2,34 @@
     <string name="app_name">AndroidMaster</string>
 
     <!--IMC APP-->
-    <string name="calculator_title">Calculadora de IMC</string>
-    <string name="male">MALE</string>
-    <string name="female">FEMALE</string>
-    <string name="height">HEIGHT</string>
-    <string name="weight">WEIGHT</string>
-    <string name="age">AGE</string>
-    <string name="calculate">CALCULATE</string>
-    <string name="recalculate">RECALCULATE</string>
-    <string name="result">RESULT</string>
+    <string name="calculadora_titol">B &amp; O BMI CALCULATOR</string>
+    <string name="home">MALE</string>
+    <string name="dona">FEMALE</string>
+    <string name="altura">HEIGHT</string>
+    <string name="pes">WEIGHT</string>
+    <string name="edat">AGE</string>
+    <string name="calcular">CALCULATE</string>
+    <string name="recalcular">RECALCULATE</string>
+    <string name="resultat">Your Results</string>
 
     <string name="error">Error</string>
 
-    <string name="title_bajo_peso">LOW IMC</string>
-    <string name="description_bajo_peso">YOU HAVE A VERY LOW IMC.</string>
+    <string name="baix_pes">LOW IMC</string>
+    <string name="descripcio_baix_pes">YOU HAVE A VERY LOW IMC.</string>
 
-    <string name="title_peso_normal">NORMAL IMC</string>
-    <string name="description_peso_normal">YOU ARE IN THE CORRECT IMC</string>
+    <string name="pes_normal">NORMAL IMC</string>
+    <string name="descripcio_pes_normal">YOU ARE IN THE CORRECT IMC</string>
 
-    <string name="title_sobrepeso">OVER IMC</string>
-    <string name="description_sobrepeso">YOU ARE OVER YOUR IMC</string>
+    <string name="sobrepes">OVER IMC</string>
+    <string name="descripcio_sobrepes">YOU ARE OVER YOUR IMC</string>
 
-    <string name="title_obesidad">OBESITY</string>
-    <string name="description_obesidad">CHECK WITH YOUR DOCTOR.</string>
+    <string name="obesitat">OBESITY</string>
+    <string name="descripcio_obesitat">CHECK WITH YOUR DOCTOR.</string>
 
     <!--Accesibilidad: descripciones para TalkBack-->
-    <string name="decrease_weight">LESS WEIGHT</string>
-    <string name="increase_weight">MORE WEIGHT</string>
-    <string name="decrease_age">LESS AGE</string>
-    <string name="increase_age">MORE AGE</string>
+    <string name="aprimar">LESS WEIGHT</string>
+    <string name="engreixar">MORE WEIGHT</string>
+    <string name="rejuvenir">LESS AGE</string>
+    <string name="envellir">MORE AGE</string>
 
 </resources>

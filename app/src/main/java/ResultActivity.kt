@@ -1,6 +1,6 @@
 package com.example.activitat3
 
-import CalculatorActivity.Companion.IMC_KEY
+import CalculatorActivity.Companion.Imc
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -9,62 +9,63 @@ import androidx.core.content.ContextCompat
 import com.example.activitat3.R
 
 
+
 class ResultActivity : AppCompatActivity() {
 
-    private lateinit var tvResult:TextView
-    private lateinit var tvIMC:TextView
-    private lateinit var tvDescription:TextView
-    private lateinit var btnRecalculate:Button
+    private lateinit var textResultat:TextView
+    private lateinit var textIMC:TextView
+    private lateinit var textDescripcio:TextView
+    private lateinit var botoRecalcular:Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.result)
-        val result:Double = intent.extras?.getDouble(IMC_KEY) ?: -1.0
+        val result:Double = intent.extras?.getDouble(Imc) ?: -1.0
         initComponents()
         initUI(result)
         initListeners()
     }
 
     private fun initListeners() {
-        btnRecalculate.setOnClickListener { onBackPressed() }
+        botoRecalcular.setOnClickListener { onBackPressed() }
     }
 
     private fun initUI(result: Double) {
-        tvIMC.text = result.toString()
+        textIMC.text = result.toString()
         when(result){
             in 0.00..18.50 -> { //Bajo peso
-                tvResult.text = getString(R.string.title_bajo_peso)
-                tvResult.setTextColor(ContextCompat.getColor(this, R.color.peso_bajo))
-                tvDescription.text = getString(R.string.description_bajo_peso)
+                textResultat.text = getString(R.string.baix_pes)
+                textResultat.setTextColor(ContextCompat.getColor(this, R.color.peso_bajo))
+                textDescripcio.text = getString(R.string.descripcio_baix_pes)
             }
             in 18.51..24.99 -> { //Peso normal
-                tvResult.text = getString(R.string.title_peso_normal)
-                tvResult.setTextColor(ContextCompat.getColor(this, R.color.peso_normal))
-                tvDescription.text = getString(R.string.description_peso_normal)
+                textResultat.text = getString(R.string.pes_normal)
+                textResultat.setTextColor(ContextCompat.getColor(this, R.color.peso_normal))
+                textDescripcio.text = getString(R.string.descripcio_pes_normal)
             }
             in 25.00..29.99 -> { //Sobrepeso
-                tvResult.text = getString(R.string.title_sobrepeso)
-                tvResult.setTextColor(ContextCompat.getColor(this, R.color.peso_sobrepeso))
-                tvDescription.text = getString(R.string.description_sobrepeso)
+                textResultat.text = getString(R.string.sobrepes)
+                textResultat.setTextColor(ContextCompat.getColor(this, R.color.peso_sobrepeso))
+                textDescripcio.text = getString(R.string.descripcio_sobrepes)
             }
             in 30.00..99.00 -> { //Obesidad
-                tvResult.text = getString(R.string.title_obesidad)
-                tvResult.setTextColor(ContextCompat.getColor(this, R.color.obesidad))
-                tvDescription.text = getString(R.string.description_obesidad)
+                textResultat.text = getString(R.string.obesitat)
+                textResultat.setTextColor(ContextCompat.getColor(this, R.color.obesidad))
+                textDescripcio.text = getString(R.string.descripcio_obesitat)
             }
             else -> {//error
-                tvIMC.text = getString(R.string.error)
-                tvResult.text = getString(R.string.error)
-                tvResult.setTextColor(ContextCompat.getColor(this, R.color.obesidad))
-                tvDescription.text = getString(R.string.error)
+                textIMC.text = getString(R.string.error)
+                textResultat.text = getString(R.string.error)
+                textResultat.setTextColor(ContextCompat.getColor(this, R.color.obesidad))
+                textDescripcio.text = getString(R.string.error)
             }
         }
     }
 
     private fun initComponents() {
-        tvIMC = findViewById(R.id.tvIMC)
-        tvResult = findViewById(R.id.tvResult)
-        tvDescription = findViewById(R.id.tvDescription)
-        btnRecalculate = findViewById(R.id.btnRecalculate)
+        textIMC = findViewById(R.id.textIMC)
+        textResultat = findViewById(R.id.textResultat)
+        textDescripcio = findViewById(R.id.textDescripcio)
+        botoRecalcular = findViewById(R.id.botoRecalcular)
     }
 }

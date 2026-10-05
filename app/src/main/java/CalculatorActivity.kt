@@ -3,125 +3,171 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import androidx.activity.enableEdgeToEdge
 import com.example.activitat3.R
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.example.activitat3.ResultActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.slider.Slider
 import java.text.DecimalFormat
 import kotlin.jvm.java
+import android.view.View
 
 class CalculatorActivity : AppCompatActivity() {
 
-    private var isMaleSelected: Boolean = true
-    private var isFemaleSelected: Boolean = false
-    private var currentWeight: Int = 70
-    private var currentAge: Int = 30
-    private var currentHeight: Int = 120
+    private var seleccioHome: Boolean = true
+    private var seleccioDona: Boolean = false
+    private var pesActual: Int = 70
+    private var edatActual: Int = 30
+    private var alturaActual: Int = 120
+    private lateinit var cardHome: CardView
+    private lateinit var cardDona: CardView
+    private lateinit var textAltura: TextView
+    private lateinit var barraAltura: Slider
+    private lateinit var botoAprimar: FloatingActionButton
+    private lateinit var botoEngreixar: FloatingActionButton
+    private lateinit var textPes: TextView
+    private lateinit var botoRejuvenir: FloatingActionButton
+    private lateinit var botoEnvellir: FloatingActionButton
+    private lateinit var textEdat: TextView
+    private lateinit var botoCalcular: Button
 
-    private lateinit var viewMale: CardView
-    private lateinit var viewFemale: CardView
-    private lateinit var tvHeight: TextView
-    private lateinit var rsHeight: Slider
-    private lateinit var btnSubtractWeight: FloatingActionButton
-    private lateinit var btnPlusWeight: FloatingActionButton
-    private lateinit var tvWeight: TextView
-    private lateinit var btnSubtractAge: FloatingActionButton
-    private lateinit var btnPlusAge: FloatingActionButton
-    private lateinit var tvAge: TextView
-    private lateinit var btnCalculate: Button
+    //lateinit var card_home: MaterialCardView
 
-    companion object{
-        const val IMC_KEY = "IMC_RESULT"
+    //lateinit var card_dona: MaterialCardView
+
+    companion object {
+        const val Imc = "IMC_RESULT"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.calculator)
-        initComponents()
-        initListeners()
-        initUI()
+        super.onCreate(savedInstanceState)// crea la vista
+        enableEdgeToEdge()// permite que la vista se ajuste a la pantalla
+        setContentView(R.layout.calculator)// fija la vista en el activity
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+        //ViewCompat.setOnApplyWindowInsetsListener(...): Asigna un escuchador (listener) a una vista para reaccionar cuando el sistema
+        // operativo calcula los bordes o áreas reservadas en pantalla.
+        //findViewById(R.id.main): Es la vista objetivo a la que se aplicará el listener (tu ConstraintLayout contenedor principal).
+        // v, insets ->: Es una función lambda que se ejecuta automáticamente cuando la pantalla se dibuja y recibe dos parámetros:
+        //v: Representa a la propia vista (R.id.main).
+        //insets: Es el objeto que contiene las dimensiones de los recortes y barras del sistema (barra de estado, barra de navegación, muesca de la cámara, etc.).
+        initComponents()// inicializa los componentes
+        initListeners()// inicializa los listeners
+        initUI()// inicializa la interfaz de usuario
     }
 
+    //var card_home: MaterialCardView = findViewById(R.id.seleccio_home)
+    //card_home.setOnClickListener {
+    //    card_home_setCardBackgroundColor(Color.Blue)
+    //      home_selected = true
+    //}
+
+    //var card_dona: MaterialCardView = findViewById(R.id.seleccio_dona)
+    //card_dona.setOnClickListener {
+    //    card_dona_setCardBackgroundColor(Color.Blue)
+    //      dona_selected = true
+    //}
+    //card_dona.setOnClickListener(::card_click)
+
+    //fun card_click(it: View):Unit{
+    //if (it.id==R.id.seleccio_home)
+    //typecast-> pasas un view- y es un material view- propietats de material cardview
+    // card_dona.setCardBackgroundColor(Color.Blue)
+    //card_home.setCardBackgroundColor(Color.White)
+    //home_selected = false
+    //}
+
+    //actividad 2 accesibilidad domingo 4
+    //actividad 3 calculadora domingo 11
+    //poner xml material 3-calculator, result
+    //adaptar codigo
+    //revisar accesibilidad.
+
     private fun initComponents() {
-        viewMale = findViewById(R.id.viewMale)
-        viewFemale = findViewById(R.id.viewFemale)
-        tvHeight = findViewById(R.id.tvHeight)
-        rsHeight = findViewById(R.id.rsHeight)
-        btnSubtractWeight = findViewById(R.id.btnSubtractWeight)
-        btnPlusWeight = findViewById(R.id.btnPlusWeight)
-        tvWeight = findViewById(R.id.tvWeight)
-        btnSubtractAge = findViewById(R.id.btnSubtractAge)
-        btnPlusAge = findViewById(R.id.btnPlusAge)
-        tvAge = findViewById(R.id.tvAge)
-        btnCalculate = findViewById(R.id.btnCalculate)
+        cardHome = findViewById(R.id.cardHome)
+        cardDona = findViewById(R.id.cardDona)
+        textAltura = findViewById(R.id.textAltura)
+        barraAltura = findViewById(R.id.barraAltura)
+        botoAprimar = findViewById(R.id.botoAprimar)
+        botoEngreixar = findViewById(R.id.botoEngreixar)
+        textPes = findViewById(R.id.textPes)
+        botoRejuvenir = findViewById(R.id.botoRejuvenir)
+        botoEnvellir = findViewById(R.id.botoEnvellir)
+        textEdat = findViewById(R.id.textEdat)
+        botoCalcular = findViewById(R.id.botoCalcular)
     }
 
     private fun initListeners() {
-        viewMale.setOnClickListener {
-            changeGender()
+        cardHome.setOnClickListener {
+            canviarGenere()
             setGenderColor()
         }
-        viewFemale.setOnClickListener {
-            changeGender()
+        cardDona.setOnClickListener {
+            canviarGenere()
             setGenderColor()
         }
-        rsHeight.addOnChangeListener { _, value, _ ->
+        barraAltura.addOnChangeListener { _, value, _ ->
             val df = DecimalFormat("#.##")
-            currentHeight = df.format(value).toInt()
-            tvHeight.text = "$currentHeight cm"
+            alturaActual = df.format(value).toInt()
+            textAltura.text = "$alturaActual cm"
         }
-        btnPlusWeight.setOnClickListener {
-            currentWeight += 1
+        botoEngreixar.setOnClickListener {
+            pesActual += 1
             setWeight()
         }
-        btnSubtractWeight.setOnClickListener {
-            currentWeight -= 1
+        botoAprimar.setOnClickListener {
+            pesActual -= 1
             setWeight()
         }
-        btnPlusAge.setOnClickListener {
-            currentAge += 1
+        botoEnvellir.setOnClickListener {
+            edatActual += 1
             setAge()
         }
-        btnSubtractAge.setOnClickListener {
-            currentAge -= 1
+        botoRejuvenir.setOnClickListener {
+            edatActual -= 1
             setAge()
         }
-        btnCalculate.setOnClickListener {
-            val result = calculateIMC()
+        botoCalcular.setOnClickListener {
+            val result = calcularIMC()
             navigateToResult(result)
         }
     }
 
     private fun navigateToResult(result: Double) {
         val intent = Intent(this, ResultActivity::class.java)
-        intent.putExtra(IMC_KEY, result)
+        intent.putExtra(Imc, result)
         startActivity(intent)
     }
 
-    private fun calculateIMC():Double {
+    private fun calcularIMC():Double {
         val df = DecimalFormat("#.##")
-        val imc = currentWeight / (currentHeight.toDouble() / 100 * currentHeight.toDouble() / 100)
+        val imc = pesActual / (alturaActual.toDouble() / 100 * alturaActual.toDouble() / 100)
         return df.format(imc).toDouble()
     }
 
     private fun setAge() {
-        tvAge.text = currentAge.toString()
+        textEdat.text = edatActual.toString()
     }
 
     private fun setWeight() {
-        tvWeight.text = currentWeight.toString()
+        textPes.text = pesActual.toString()
     }
 
-    private fun changeGender() {
-        isMaleSelected = !isMaleSelected
-        isFemaleSelected = !isFemaleSelected
+    private fun canviarGenere() {
+        seleccioHome = !seleccioHome
+        seleccioDona = !seleccioDona
     }
 
     private fun setGenderColor() {
-        viewMale.setCardBackgroundColor(getBackgroundColor(isMaleSelected))
-        viewFemale.setCardBackgroundColor(getBackgroundColor(isFemaleSelected))
+        cardHome.setCardBackgroundColor(getBackgroundColor(seleccioHome))
+        cardDona.setCardBackgroundColor(getBackgroundColor(seleccioDona))
     }
 
     private fun getBackgroundColor(isSelectedComponent: Boolean): Int {
