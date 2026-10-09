@@ -1,3 +1,6 @@
+package com.example.activitat3
+
+
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,7 +17,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.slider.Slider
 import java.text.DecimalFormat
 import kotlin.jvm.java
-import android.view.View
 
 class CalculatorActivity : AppCompatActivity() {
 
@@ -35,12 +37,8 @@ class CalculatorActivity : AppCompatActivity() {
     private lateinit var textEdat: TextView
     private lateinit var botoCalcular: Button
 
-    //lateinit var card_home: MaterialCardView
-
-    //lateinit var card_dona: MaterialCardView
-
     companion object {
-        const val Imc = "IMC_RESULT"
+        const val IMC = "IMC_RESULT"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,33 +60,6 @@ class CalculatorActivity : AppCompatActivity() {
         initListeners()// inicializa los listeners
         initUI()// inicializa la interfaz de usuario
     }
-
-    //var card_home: MaterialCardView = findViewById(R.id.seleccio_home)
-    //card_home.setOnClickListener {
-    //    card_home_setCardBackgroundColor(Color.Blue)
-    //      home_selected = true
-    //}
-
-    //var card_dona: MaterialCardView = findViewById(R.id.seleccio_dona)
-    //card_dona.setOnClickListener {
-    //    card_dona_setCardBackgroundColor(Color.Blue)
-    //      dona_selected = true
-    //}
-    //card_dona.setOnClickListener(::card_click)
-
-    //fun card_click(it: View):Unit{
-    //if (it.id==R.id.seleccio_home)
-    //typecast-> pasas un view- y es un material view- propietats de material cardview
-    // card_dona.setCardBackgroundColor(Color.Blue)
-    //card_home.setCardBackgroundColor(Color.White)
-    //home_selected = false
-    //}
-
-    //actividad 2 accesibilidad domingo 4
-    //actividad 3 calculadora domingo 11
-    //poner xml material 3-calculator, result
-    //adaptar codigo
-    //revisar accesibilidad.
 
     private fun initComponents() {
         cardHome = findViewById(R.id.cardHome)
@@ -142,7 +113,7 @@ class CalculatorActivity : AppCompatActivity() {
 
     private fun navigateToResult(result: Double) {
         val intent = Intent(this, ResultActivity::class.java)
-        intent.putExtra(Imc, result)
+        intent.putExtra(IMC, result)
         startActivity(intent)
     }
 
@@ -173,9 +144,9 @@ class CalculatorActivity : AppCompatActivity() {
     private fun getBackgroundColor(isSelectedComponent: Boolean): Int {
 
         val colorReference = if (isSelectedComponent) {
-            R.color.background_component_selected
+            R.color.fons_seleccionat
         } else {
-            R.color.background_component
+            R.color.fons
         }
 
         return ContextCompat.getColor(this, colorReference)

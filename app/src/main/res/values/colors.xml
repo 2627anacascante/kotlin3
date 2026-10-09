@@ -11,12 +11,12 @@
 
 
 
-    <color name="background_component">#1D1E33</color>
-    <color name="background_component_selected">#FF111328</color>
-    <color name="background_app">#0E0B20</color>
-    <color name="background_button">#EB1555</color>
-    <color name="title_text">#FF8D8E98</color>
-    <color name="background_fab">#FF6200EE</color>
+    <color name="fons">#1D1E33</color>
+    <color name="fons_seleccionat">#FF03DAC5</color>
+    <color name="fons_app">#0E0B20</color>
+    <color name="fons_buto">#EB1555</color>
+    <color name="text_titols">#FF8D8E98</color>
+    <color name="fons_card">#FF6200EE</color>
 
     <color name="peso_bajo">#FFEB3B</color>
     <color name="peso_normal">#4CAF50</color>

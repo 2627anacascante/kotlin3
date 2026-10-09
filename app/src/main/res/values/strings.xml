@@ -12,6 +12,8 @@
     <string name="recalcular">RECALCULATE</string>
     <string name="resultat">Your Results</string>
 
+    <string name="altura_cm">120</string>
+
     <string name="error">Error</string>
 
     <string name="baix_pes">LOW IMC</string>
@@ -26,10 +28,10 @@
     <string name="obesitat">OBESITY</string>
     <string name="descripcio_obesitat">CHECK WITH YOUR DOCTOR.</string>
 
-    <!--Accesibilidad: descripciones para TalkBack-->
-    <string name="aprimar">LESS WEIGHT</string>
-    <string name="engreixar">MORE WEIGHT</string>
-    <string name="rejuvenir">LESS AGE</string>
-    <string name="envellir">MORE AGE</string>
+    <!--Accessibility: descriptions para TalkBack-->
+    <string name="menys_pes">LESS WEIGHT</string>
+    <string name="mes_pes">MORE WEIGHT</string>
+    <string name="menys_edat">LESS AGE</string>
+    <string name="mes_edat">MORE AGE</string>
 
 </resources>

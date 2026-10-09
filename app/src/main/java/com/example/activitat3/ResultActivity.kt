@@ -1,13 +1,12 @@
 package com.example.activitat3
 
-import CalculatorActivity.Companion.Imc
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.core.content.ContextCompat
-import com.example.activitat3.R
-
+import com.example.activitat3.CalculatorActivity.Companion.IMC
 
 
 class ResultActivity : AppCompatActivity() {
@@ -20,14 +19,14 @@ class ResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.result)
-        val result:Double = intent.extras?.getDouble(Imc) ?: -1.0
+        val result:Double = intent.extras?.getDouble(IMC) ?: -1.0
         initComponents()
         initUI(result)
         initListeners()
     }
 
     private fun initListeners() {
-        botoRecalcular.setOnClickListener { onBackPressed() }
+        botoRecalcular.setOnClickListener { finish() }
     }
 
     private fun initUI(result: Double) {

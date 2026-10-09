@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_app"
+    android:background="@color/fons_app"
     android:paddingHorizontal="16dp"
     android:paddingVertical="32dp"
     tools:context="CalculatorActivity">
@@ -23,7 +23,8 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:contentDescription= "@string/calculadora_titol"/>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardHome"
@@ -33,7 +34,7 @@
         android:clickable="true"
         android:focusable="true"
         android:contentDescription="@string/home"
-        app:cardBackgroundColor="@color/background_component_selected"
+        app:cardBackgroundColor="@color/fons_seleccionat"
         app:cardCornerRadius="16dp"
         app:layout_constraintEnd_toStartOf="@+id/cardDona"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,7 +59,7 @@
                 android:importantForAccessibility="no"
                 android:text="@string/home"
                 android:textAllCaps="true"
-                android:textColor="@color/title_text" />
+                android:textColor="@color/text_titols" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -72,7 +73,7 @@
         android:clickable="true"
         android:focusable="true"
         android:contentDescription="@string/dona"
-        app:cardBackgroundColor="@color/background_component"
+        app:cardBackgroundColor="@color/fons"
         app:cardCornerRadius="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/cardHome"
@@ -97,7 +98,7 @@
                 android:importantForAccessibility="no"
                 android:text="@string/dona"
                 android:textAllCaps="true"
-                android:textColor="@color/title_text" />
+                android:textColor="@color/text_titols" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -109,7 +110,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        app:cardBackgroundColor="@color/background_component"
+        app:cardBackgroundColor="@color/fons"
         app:cardCornerRadius="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -127,13 +128,13 @@
                 android:layout_height="wrap_content"
                 android:text="@string/altura"
                 android:textAllCaps="true"
-                android:textColor="@color/title_text" />
+                android:textColor="@color/text_titols" />
 
             <TextView
                 android:id="@+id/textAltura"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="120 cm"
+                android:text="@string/altura_cm"
                 android:textColor="@color/white"
                 android:textSize="38sp"
                 android:textStyle="bold" />
@@ -143,10 +144,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/altura"
-                android:stepSize="1"
-                android:value="120"
-                android:valueFrom="120"
-                android:valueTo="200" />
+                android:stepSize="1.0"
+                android:value="120.0"
+                android:valueFrom="100.0"
+                android:valueTo="200.0" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -154,13 +155,13 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardPes"
-        android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_width="182dp"
+        android:layout_height="146dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
-        app:cardBackgroundColor="@color/background_component"
+        app:cardBackgroundColor="@color/fons"
         app:cardCornerRadius="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/viewAge"
+        app:layout_constraintEnd_toStartOf="@+id/vistasEdat"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardAltura">
 
@@ -175,7 +176,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/pes"
                 android:textAllCaps="true"
-                android:textColor="@color/title_text" />
+                android:textColor="@color/text_titols" />
 
             <TextView
                 android:id="@+id/textPes"
@@ -197,18 +198,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
-                    android:contentDescription="@string/aprimar"
+                    android:contentDescription="@string/menys_pes"
                     android:src="@drawable/less"
-                    app:backgroundTint="@color/background_fab"
+                    app:backgroundTint="@color/fons_card"
                     app:tint="@color/white" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/botoEngreixar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/engreixar"
+                    android:contentDescription="@string/mes_pes"
                     android:src="@drawable/plus"
-                    app:backgroundTint="@color/background_fab"
+                    app:backgroundTint="@color/fons_card"
                     app:tint="@color/white" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -218,19 +219,20 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/viewAge"
-        android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:id="@+id/vistasEdat"
+        android:layout_width="165dp"
+        android:layout_height="144dp"
         android:layout_marginTop="32dp"
-        app:cardBackgroundColor="@color/background_component"
+        app:cardBackgroundColor="@color/fons"
         app:cardCornerRadius="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/cardPes"
         app:layout_constraintTop_toBottomOf="@+id/cardAltura">
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="153dp"
+            android:layout_height="142dp"
+            android:contentDescription="@string/edat"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -239,7 +241,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/edat"
                 android:textAllCaps="true"
-                android:textColor="@color/title_text" />
+                android:textColor="@color/text_titols" />
 
             <TextView
                 android:id="@+id/textEdat"
@@ -261,18 +263,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
-                    android:contentDescription="@string/rejuvenir"
+                    android:contentDescription="@string/menys_edat"
                     android:src="@drawable/less"
-                    app:backgroundTint="@color/background_fab"
+                    app:backgroundTint="@color/fons_card"
                     app:tint="@color/white" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/botoEnvellir"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/envellir"
+                    android:contentDescription="@string/mes_edat"
                     android:src="@drawable/plus"
-                    app:backgroundTint="@color/background_fab"
+                    app:backgroundTint="@color/fons_card"
                     app:tint="@color/white" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -285,7 +287,16 @@
         android:id="@+id/botoCalcular"
         android:layout_width="0dp"
         android:layout_height="80dp"
+        android:layout_marginHorizontal="16dp"
+        android:gravity="center"
+        android:contentDescription="@string/calcular"
         android:text="@string/calcular"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="@color/fons_card"
+        app:backgroundTint="@color/fons_card"
+        app:cornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
